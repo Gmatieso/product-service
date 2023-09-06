@@ -1,10 +1,13 @@
 package com.techg.productservice.controller;
 
 import com.techg.productservice.dto.ProductRequest;
+import com.techg.productservice.dto.ProductResponse;
 import com.techg.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 //@RequiredArgsConstructor
@@ -23,5 +26,12 @@ public class ProductController {
         //lets create our product
         productService.createProduct(productRequest);
 
+    }
+
+    //Get all products endpoint
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<ProductResponse> getAllProducts(){
+        return productService.getAllProducts();
     }
 }
