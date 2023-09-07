@@ -1,6 +1,8 @@
 package com.techg.productservice;
 
+import com.mongodb.assertions.Assertions;
 import com.techg.productservice.dto.ProductRequest;
+import com.techg.productservice.repository.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,8 @@ class ProductServiceApplicationTests {
 	private MockMvc mockMvc;
 	@Autowired
 	private ObjectMapper objectMapper;
+	@Autowired
+	private ProductRepository productRepository;
 	@DynamicPropertySource    //add property to our spring context dynamically
 	static void setProperties(DynamicPropertyRegistry dynamicPropertyRegistry) {
 		dynamicPropertyRegistry.add("spring.data.mongodb.uri", mongoDBContainer::getReplicaSetUrl);
@@ -47,6 +51,7 @@ class ProductServiceApplicationTests {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(productRequestString))
 				.andExpect(status().isCreated());
+		Assertions.assertTrue(productRepository.findAll().size() == 1);
 	}
 
 	private ProductRequest getProductRequest() {
