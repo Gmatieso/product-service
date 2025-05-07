@@ -7,8 +7,6 @@ import java.math.BigDecimal;
 @Data  //creates getter and setters
 @Getter
 @Builder  //creates builder methods
-@AllArgsConstructor
-@NoArgsConstructor
 public class ProductResponse {
 
     public ProductResponse(String id, String name, String description, BigDecimal price){
