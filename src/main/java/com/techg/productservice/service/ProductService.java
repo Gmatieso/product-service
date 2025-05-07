@@ -24,14 +24,12 @@ public class ProductService {
 
     public void createProduct(ProductRequest productRequest){
         //lets map our product request to the product model
-        Product product = Product.builder()
-                .name(productRequest.getName())
-                .description(productRequest.getDescription())
-                .price(productRequest.getPrice())
-                .build(); //creates an object of type product
+        Product product = new Product();
+        product.setName(productRequest.getName());
+        product.setDescription(productRequest.getDescription());
+        product.setPrice(productRequest.getPrice());
         //save your product to the repository
         productRepository.save(product);
-        log.info("Product {} is saved", product.getId());
     }
 
     public List<ProductResponse> getAllProducts() {

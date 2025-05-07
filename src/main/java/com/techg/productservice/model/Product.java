@@ -22,4 +22,23 @@ public class Product {
     private String description;
     private BigDecimal price;
 
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public void setDescription(String description){
+        this.name = description;
+    }
+    
+    public  void setPrice(BigDecimal price){
+        this.price = price;
+    }
+
+
 }
