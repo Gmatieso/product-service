@@ -1,19 +1,30 @@
 package com.techg.productservice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @Data  //creates getter and setters
+@Getter
 @Builder  //creates builder methods
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductResponse {
+
+    public ProductResponse(String id, String name, String description, BigDecimal price){
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
+
     private String id;
     private String name;
     private String description;
     private BigDecimal price;
+
+    private String getId(){
+        return id;
+    }
 }

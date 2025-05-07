@@ -26,18 +26,34 @@ public class Product {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getId(){
+        return id;
+    }
     
     
     public void setName(String name){
         this.name = name;
     }
-    
+
+    public String getName(){
+        return name;
+    }
+
     public void setDescription(String description){
         this.name = description;
+    }
+
+    public String getDescription(){
+        return description;
     }
     
     public  void setPrice(BigDecimal price){
         this.price = price;
+    }
+
+    public BigDecimal getPrice(){
+        return price;
     }
 
 
